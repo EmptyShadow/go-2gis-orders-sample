@@ -146,10 +146,12 @@ func (r FindOrdersRequest) FindOrdersInDTO() orders.FindOrdersInDTO {
 
 type FindOrdersResponse struct {
 	Orders ListOrders `json:"orders"`
+	Total  uint64     `json:"total"`
 }
 
 func FindOrdersResponseFromDTO(dto orders.FindOrdersOutDTO) FindOrdersResponse {
 	return FindOrdersResponse{
 		Orders: ListOrderFromDTO(dto.Orders),
+		Total:  dto.Total,
 	}
 }
